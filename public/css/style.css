@@ -1,0 +1,203 @@
+/* General Styles */
+body {
+    margin: 0;
+    padding-top: 70px; /* Adjust this value to match the navbar's height */
+    background-color: #000000;
+    color: #f7f8fc;
+    font-family: Arial, sans-serif;
+}
+
+/* Navbar */
+.navbar {
+    background-color: #1f1f1f;
+    padding: 10px 20px;
+    color: #8c40ff;
+    text-align: left;
+    width: 100%;
+    box-shadow: 1px 2px 10px #444343;
+    top: 0;
+    font-size: 20px;
+    font-weight: bold;
+    position: fixed;
+    z-index: 1000;
+}
+
+.navbar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: left;
+    gap: 20px;
+}
+
+.navbar ul li a {
+    text-decoration: none;
+    color: inherit;
+    transition: color 0.3s, transform 0.2s;
+}
+
+.navbar ul li a:hover {
+    color: #ff6161;
+    transform: scale(1.2);
+}
+.navbar ul li a i {
+    margin-right: 5px; /* Increase gap between icon and text */
+    font-size: 20px;
+}
+/* Main Class */
+.Main {
+    padding: 20px;
+    color: gold;
+    margin: 100px auto;
+    background-color: #1f1f1f;
+    width: 60%;
+    border-radius: 10px;
+    box-shadow: 1px 2px 3px #444343;
+    animation: fadeIn 0.5s ease-in-out;
+    text-align: center;
+}
+
+.Main p {
+    margin: 10px 0;
+    line-height: 1.5;
+}
+
+.Main em {
+    font-style: italic;
+    color: #ffcc00;
+}
+
+/* Box Class */
+.Box {
+    width: 400px;
+    padding: 20px;
+    background-color: #1f1f1f;
+    border-radius: 10px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    margin-top: 50px;
+    animation: slideIn 0.8s ease-in-out;
+}
+
+.Box h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #37ad00;
+    text-shadow: 2px 2px 5px rgba(255, 255, 255, 0.5);
+}
+
+.Box input {
+    width: 90%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #9b9b9b;
+    border-radius: 5px;
+    background-color: #f7f8fc;
+    color: #000;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+}
+
+.Box input:hover {
+    border-color: #6136b1;
+    background-color: #eaeaea;
+}
+
+.Box input:focus {
+    outline: none;
+    border-color: #37ad00;
+    box-shadow: 0 0 5px rgba(55, 173, 0, 0.7);
+}
+
+.Box input[type="submit"] {
+    background-color: #37ad00;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s;
+}
+
+.Box input[type="submit"]:hover {
+    background-color: #2c8a00;
+    transform: scale(1.05);
+}
+.Selected{
+    color: red !important;
+}
+
+/* Error Message */
+h5 {
+    padding: 10px;
+    text-align: center;
+    color: red;
+    background-color: rgba(255, 0, 0, 0.2);
+    width: fit-content;
+    border: 2px solid red;
+    border-radius: 10px;
+    margin: 10px auto;
+}
+
+/* Footer */
+footer {
+    text-align: left;
+    font-weight: bold;
+    font-size: 14px;
+    color: #8c40ff;
+    margin-top: 50px;
+    text-shadow: 1px 1px 2px grey;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-30px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .Main, .Box {
+        width: 90%;
+    }
+
+    .navbar ul {
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .Main {
+        margin-top: 80px;
+    }
+}
+
+@media (max-width: 480px) {
+    .Main, .Box {
+        width: 100%;
+        padding: 15px;
+    }
+
+    .navbar {
+        font-size: 16px;
+    }
+
+    .navbar ul {
+        flex-direction: column;
+        align-items: center;
+    }
+}
