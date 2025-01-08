@@ -8,10 +8,16 @@ document.addEventListener('DOMContentLoaded', function () {
         '/AboutMe': 'About Me'
     }
 
-
     if (navItems[currentPath]) {
         navLink.classList.add('Selected'); 
         place.textContent = navItems[currentPath]
     }
 
 });
+
+function Time() {
+    const time = new Date();
+    const timeString = `${time.getHours()}:${time.getMinutes()}:${time.getSeconds()}`;
+    document.getElementById('Time').innerText = `KSA: ${timeString}`;
+}
+setInterval(Time, 10);

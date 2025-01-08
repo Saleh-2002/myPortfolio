@@ -116,14 +116,5 @@ app.get("/SignUp", (req: Request, res: Response) => res.render("SignUp"));
 app.get("/Home", isLoggedIn, (req: Request, res: Response) => res.render("Home"));
 app.get("/MyProjects", isLoggedIn, (req: Request, res: Response) => res.render("MyProjects"));
 app.get("/AboutMe", isLoggedIn, (req: Request, res: Response) => res.render("AboutMe"));
+app.get('/Logout', (req, res) => { req.session.destroy(err => { if (err) { console.error("Logout error:", err); return res.status(500).send("Unable to log out."); } res.redirect("/Login"); }); });
 app.listen(Port, () => { console.log(`Server running at http://localhost:${Port}`) });
-
-app.get('/Logout', (req, res) => {
-    req.session.destroy(err => {
-        if (err) {
-            console.error("Logout error:", err);
-            return res.status(500).send("Unable to log out.");
-        }
-        res.redirect("/Login");
-    });
-});
