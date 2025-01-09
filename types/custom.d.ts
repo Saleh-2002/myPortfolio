@@ -9,3 +9,4 @@ declare module "express-session" {
 declare module 'method-override';
 
 declare module 'bcrypt'
+declare module 'nodemailer'
