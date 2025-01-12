@@ -27,8 +27,14 @@ body {
     padding: 0;
     margin: 0;
     display: flex;
-    justify-content: left;
-    gap: 20px;
+    justify-content: flex-start;
+    gap: 20px;  /* The gap between items */
+    flex-wrap: nowrap;  /* Prevent wrapping on small screens */
+    overflow-x: auto;  /* Allow horizontal scrolling if needed */
+}
+
+.navbar ul li {
+    white-space: nowrap;  /* Prevent text from wrapping */
 }
 
 .navbar ul li a {
@@ -41,10 +47,13 @@ body {
     color: #ff6161;
     transform: scale(1.2);
 }
+
 .navbar ul li a i {
-    margin-right: 5px; /* Increase gap between icon and text */
+    margin-right: 5px; /* Gap between icon and text */
     font-size: 20px;
 }
+
+
 /* Main Class */
 .Main {
     padding: 20px;
@@ -171,32 +180,34 @@ footer {
 
 /* Responsive Design */
 @media (max-width: 768px) {
-    .Main, .Box {
+    .box {
         width: 90%;
-    }
-
-    .navbar ul {
-        justify-content: center;
-        gap: 10px;
+        padding: 15px;
+        margin-top: 50px;
     }
 
     .Main {
-        margin-top: 80px;
+        width: 100%;
+    }
+    .navbar{
+        width: 100%;
+        font-size: 15px;
+    }
+    .navbar ul li a i {
+        margin-right: 5px; /* Gap between icon and text */
+        font-size: 15px;
     }
 }
 
 @media (max-width: 480px) {
-    .Main, .Box {
+    .box {
         width: 100%;
-        padding: 15px;
+        padding: 10px;
+        margin-top: 30px;
+
     }
 
-    .navbar {
-        font-size: 16px;
-    }
-
-    .navbar ul {
-        flex-direction: column;
-        align-items: center;
+    .Main {
+        width: 100%;
     }
 }

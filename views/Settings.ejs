@@ -1,0 +1,32 @@
+<%- include("partials/header.ejs") %>
+    <div align="center">
+        <div class="Main">
+            <% if (QR){ %>
+                <h1>My QR</h1>
+                <img style="border-radius: 10px; border: 5px solid #4d00c0 ;" src="<%= QR %>">
+                <ul style="text-align: left;">
+                    <li>
+                        Email: <u>
+                            <%= Email %>
+                        </u>
+                    </li>
+                    <li>
+                        Name: <u>
+                            <%= Username %>
+                        </u>
+                    </li>
+                    <li>
+                        Phone Number: <u>(+966)<%= PhoneNumber.slice(1,) %></u>
+                    </li>
+                    <li>
+                        Date of Birth: <u>
+                            <%= BirthDate %>
+                        </u>
+                    </li>
+                </ul>
+                <% }else{ %>
+                    <h1>No QR Was Found!</h1>
+                    <% } %>
+        </div>
+    </div>
+    <%- include("partials/footer.ejs") %>

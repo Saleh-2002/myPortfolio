@@ -5,7 +5,8 @@ document.addEventListener('DOMContentLoaded', function () {
     const navItems = {
         '/Home': 'Home',
         '/MyProjects': 'My Projects',
-        '/AboutMe': 'About Me'
+        '/AboutMe': 'About Me', 
+        '/Settings': 'Settings'
     }
 
     if (navItems[currentPath]) {
