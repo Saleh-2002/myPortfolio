@@ -15,6 +15,9 @@
                             <%= Username %>
                         </u>
                     </li>
+                    <li>Nationality: <u>
+                            <%= Nationality %>
+                        </u></li>
                     <li>
                         Phone Number: <u>(+966)<%= PhoneNumber.slice(1,) %></u>
                     </li>
@@ -23,6 +26,7 @@
                             <%= BirthDate %>
                         </u>
                     </li>
+
                 </ul>
                 <% }else{ %>
                     <h1>No QR Was Found!</h1>

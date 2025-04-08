@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" >
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -13,38 +13,38 @@
 </style>
 
 <body class="logIn">
-    <h1 style="
-    font-family: incursive; 
-    text-align: center; 
-    color: #37ad00; 
-    font-weight: bold; 
-    text-shadow: 2px 2px 5px rgba(255, 255, 255, 0.5);">
-        <em>Welcome!</em>
-    </h1>
-    <div align="center">
-        <div class="Box">
-            <h1 class="hed" style="color:rgb(255, 255, 255);">Sign Up</h1>
-            <form action="/SignUp" method="POST">
-                <input type="email" name="Email" id="Email" placeholder="Email" required>
-                <input type="number" name="PhoneNumber" id="PhoneNumber" placeholder="Phone Number" required>
-                <input type="text" id="username" placeholder="Username" name="Username" maxlength="20" required><br>
-                <input type="password" id="password" placeholder="Password" name="Password" minlength="8" required><br>
-                <input type="date" name="BirthDate" id="BirthDate" required>
-                <input type="submit" value="Submit">
-            </form>
-            <% if (locals.error) { %>
-                <h5 style="padding: 10px; text-align: center; color: red; background-color: rgba(255, 0, 0, 0.223); width: fit-content; border: 2px solid red; border-radius: 10px;">
-                    <%= locals.error %>
-                </h5>
-            <% } %>
-            
-            <p style="color:rgb(255, 255, 255);">Already have an account? <a href="/Login">Log In</a></p>
 
+    <div align="center">
+        <div style="display: flex; flex-direction: row; gap: 20px; align-items: center;">
+            <div style="display: flex; flex-direction: column;">
+            <ul id="correct"></ul>
+            <ul id="ErrorMessage"></ul>
+        </div>
+            <div class="Box">
+                <h1 class="hed" style="color:rgb(255, 255, 255); ">Sign Up</h1>
+                <form action="/SignUp" method="POST" onsubmit="return checkInfo(event)">
+                    <input type="email" name="Email" id="Email" placeholder="Email">
+                    <input type="number" name="PhoneNumber" id="PhoneNumber" placeholder="Phone Number">
+                    <input type="text" id="username" placeholder="Username" name="Username" maxlength="20"><br>
+                    <input type="password" id="password" placeholder="Password" name="Password" minlength="8"><br>
+                    <input type="date" name="BirthDate" id="BirthDate">
+                    <select name="Nationality" id="Nationality">
+                        <option value="None" hidden selected>None</option>
+                    </select>
+                    <% if (locals.error) { %>
+                        <h5
+                            style="padding: 10px; text-align: center; color: red; background-color: rgba(255, 0, 0, 0.223); width: fit-content; border: 2px solid red; border-radius: 10px;">
+                            <%= locals.error %>
+                        </h5>
+                        <% } %>
+                            <input type="submit" value="Submit">
+                            <p style="color:rgb(255, 255, 255);">Already have an account? <a href="/Login">Log In</a>
+                            </p>
+                </form>
+            </div>
         </div>
 
     </div>
     <script src="JavaScript/script.js"></script>
-
 </body>
-
 </html>
