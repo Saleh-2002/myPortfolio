@@ -214,7 +214,8 @@ app.get("/Home", isLoggedIn, (req: Request, res: Response) => res.render("Home")
 app.get("/MyProjects", isLoggedIn, (req: Request, res: Response) => res.render("MyProjects"));
 app.get("/AboutMe", isLoggedIn, (req: Request, res: Response) => res.render("AboutMe"));
 app.get("/MyAI", isLoggedIn, async (req: Request, res: Response) => {
-    await getAIResponse("Dr? ")
+    const Myname = req.session.user?.Username;
+    await getAIResponse(`Don't respond to this message. This is to let you know my name and use it in our conversation. My name is ${Myname}, now start the conv with "Hello ${Myname}, how can i assist you?  ".`)
         .then((AIResponse) => { res.render("MyAI", { AIResponse }); })
         .catch((error) => { res.status(500).render("MyAI", { error: error }); })
 });
