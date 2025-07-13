@@ -12,6 +12,8 @@ import axiosRetry from "axios-retry";
 import QRCode from 'qrcode';
 import http from 'http';
 import https from 'https';
+import path from "path";
+
 
 dotenv.config();
 
@@ -130,34 +132,36 @@ async function createQRCode(Email: string, Username: string, PhoneNumber: string
 
 
 
+const filePath = path.join(__dirname, "users.txt");
+
 async function WriteIntoFile(Info: string): Promise<void> {
-    fs.appendFile("users.txt", Info, (err) => {
+    fs.appendFile(filePath, Info, (err) => {
         if (err) {
             Eprint("Error writing to file:", err);
         } else {
             console.log("File written successfully!");
         }
-    })
+    });
 }
 
-async function ReadFromFile(FilePath: string) {
+async function ReadFromFile() {
     try {
-        const data = await fs.promises.readFile(FilePath, "utf8");
+        const data = await fs.promises.readFile(filePath, "utf8");
         const lines = data.split("\n");
+        Users.length = 0; // clear old users before pushing new
         for (const line of lines) {
+            if (!line.trim()) continue;
             const [Email, Password, PhoneNumber, Username, BirthDate, Nationality] = line.split(",");
             Users.push({ Email, Password, PhoneNumber, Username, BirthDate, Nationality });
-            return Users;
         }
     } catch (error) {
         Eprint("Error reading from file:", error);
         throw error;
     }
 }
-
 app.post("/Login", async (req: Request, res: Response) => {
     const { Email, password } = req.body;
-    await ReadFromFile("users.txt");
+    await ReadFromFile();
     try {
         const user = Users.find((user) => user.Email === Email && bcrypt.compareSync(password, user.Password));
         if (user) {
@@ -175,7 +179,7 @@ app.post("/Login", async (req: Request, res: Response) => {
 app.post("/SignUp", async (req: Request, res: Response) => {
     const { Email, Password, PhoneNumber, Username, BirthDate, Nationality } = req.body;
     try {
-        await ReadFromFile("users.txt");
+        await ReadFromFile();
 
         const existingUser = Users.find(user => user.Email.trim().toLowerCase() === Email.trim().toLowerCase() || PhoneNumber === user.PhoneNumber);
         if (existingUser) {
