@@ -24,7 +24,7 @@
                 <h1 class="hed" style="color:rgb(255, 255, 255); ">Sign Up</h1>
                 <form action="/SignUp" method="POST" onsubmit="return checkInfo(event)">
                     <input type="email" name="Email" id="Email" placeholder="Email">
-                    <input type="number" name="PhoneNumber" id="PhoneNumber" placeholder="Phone Number">
+                    <input type="number" name="PhoneNumber" id="PhoneNumber" placeholder="Phone Number (e.g. +966512345678)" pattern="^\+?\d{1,3}[- ]?\d{1,4}[- ]?\d{1,4}[- ]?\d{1,9}$" title="Please enter a valid phone number"><br>
                     <input type="text" id="username" placeholder="Username" name="Username" maxlength="20"><br>
                     <input type="password" id="password" placeholder="Password" name="Password" minlength="8"><br>
                     <input type="date" name="BirthDate" id="BirthDate">
